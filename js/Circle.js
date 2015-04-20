@@ -1,4 +1,6 @@
 define(['Box'], function(Box) {
+
+    // Clones an object
     function clone(obj) {
         if (obj === null || typeof(obj) !== 'object')
             return obj;
@@ -14,10 +16,15 @@ define(['Box'], function(Box) {
         return temp;
     }
 
-    var Circle = function(width, height, x, y) {
-        Box.call(this, width, height, x, y);
+    // Only need 3 variables is needed in a circle
+    var Circle = function(width, x, y) {
+
+        // This is the "same" as 
+        //   new Box(width, 0, x, y)
+        Box.call(this, width, 0, x, y);
     }
 
+    // Copies all of boxs' prototype functions
     Circle.prototype = clone(Box.prototype);
 
     Circle.prototype.draw = function(ctx) {
